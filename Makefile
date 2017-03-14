@@ -25,6 +25,12 @@ TARGET_SO := libUnmanagedLibrary.dylib
 default: all
 all: $(TARGET_EXE) $(TARGET_SO)
 
+clean:
+	rm -f $(TARGET_EXE) $(TARGET_SO)
+	rm -f nsIMyService.cs nsIMyService.h
+
+.PHONY: default all clean
+
 $(TARGET_EXE): ManagedApplication.cs nsIMyService.cs
 	$(CSC) ManagedApplication.cs nsIMyService.cs
 
