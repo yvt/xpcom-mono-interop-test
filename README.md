@@ -3,7 +3,7 @@ XPCOM-Mono Interop Test
 
 Playing around with XPCOM for some awesome new project
 
-Only tested on macOS
+Only tested on macOS. Gecko SDK is required to build this program.
 
 Example Output
 --------------
@@ -11,10 +11,14 @@ Example Output
 ```
 $ mono ManagedApplication.exe
 entering CLInitialize (native)
+nsMyService::nsMyService (native)
 leaving CLInitialize (native)
-nsMyService::Hoge(nullptr) (native)
-nsMyService::Hoge(non-nullptr) (native)
+entering nsMyService::Hoge(nullptr) (native)
+leaving nsMyService::Hoge (native)
+entering nsMyService::Hoge(non-nullptr) (native)
 MyService.Hoge (managed)
+leaving nsMyService::Hoge (native)
+nsMyService::~nsMyService (native)
 ```
 
 References

@@ -7,10 +7,16 @@ public:
     NS_DECL_ISUPPORTS
     NS_DECL_NSIMYSERVICE
 
-    nsMyService() { }
+    nsMyService()
+    {
+        std::cout << "nsMyService::nsMyService (native)" << std::endl;
+    }
 
 private:
-    ~nsMyService() { }
+    ~nsMyService()
+    {
+        std::cout << "nsMyService::~nsMyService (native)" << std::endl;
+    }
 };
 
 NS_IMPL_ISUPPORTS(nsMyService, nsIMyService)
@@ -18,12 +24,13 @@ NS_IMPL_ISUPPORTS(nsMyService, nsIMyService)
 NS_IMETHODIMP nsMyService::Hoge(nsIMyService *otherService)
 {
     if (otherService) {
-        std::cout << "nsMyService::Hoge(non-nullptr) (native)" << std::endl;
-        return otherService->Hoge(this);
+        std::cout << "entering nsMyService::Hoge(non-nullptr) (native)" << std::endl;
+        otherService->Hoge(this);
     } else {
-        std::cout << "nsMyService::Hoge(nullptr) (native)" << std::endl;
-        return NS_OK;
+        std::cout << "entering nsMyService::Hoge(nullptr) (native)" << std::endl;
     }
+    std::cout << "leaving nsMyService::Hoge (native)" << std::endl;
+    return NS_OK;
 }
 
 extern "C" void CLInitialize(nsIMyService **outService)
