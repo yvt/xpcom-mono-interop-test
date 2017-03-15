@@ -3,7 +3,7 @@ XPCOM-Mono Interop Test
 
 Playing around with XPCOM for some awesome new project
 
-Only tested on macOS. Gecko SDK is required to build this program.
+Only tested on macOS. [Gecko SDK](https://developer.mozilla.org/en-US/docs/Mozilla/Gecko/Gecko_SDK) is required to build this program.
 
 Example Output
 --------------
